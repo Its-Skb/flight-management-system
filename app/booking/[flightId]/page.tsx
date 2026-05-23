@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import SeatMap from "@/components/booking/seat-map";
+import SeatSelector from "@/components/booking/seat-selector";
 
 import {
   getFlightById,
@@ -91,7 +91,10 @@ export default async function BookingPage({
           </h2>
 
           <div className="mt-6">
-            <SeatMap seats={seats} />
+            <SeatSelector
+              seats={seats}
+              basePrice={flight.base_price}
+            />
           </div>
         </div>
       </div>

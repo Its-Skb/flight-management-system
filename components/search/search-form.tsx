@@ -2,9 +2,15 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useFlightStore } from "@/stores/flight-store";
 
 export default function SearchForm() {
   const router = useRouter();
+
+  const setSearchQuery =
+  useFlightStore(
+    (state) => state.setSearchQuery
+  );
 
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
@@ -13,6 +19,15 @@ export default function SearchForm() {
 
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
+
+    const query = {
+      origin,
+      destination,
+      date,
+      passengers,
+    };
+
+    setSearchQuery(query);
 
     const params = new URLSearchParams({
       origin,

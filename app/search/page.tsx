@@ -1,4 +1,5 @@
 import { getFlights } from "@/services/flights";
+import FlightCard from "@/components/flights/flight-card";
 
 interface SearchPageProps {
   searchParams: Promise<{
@@ -37,44 +38,26 @@ export default async function SearchPage({
           Available Flights
         </h1>
 
-        <div className="grid gap-4">
-          {filteredFlights.map((flight) => (
-            <div
-              key={flight.id}
-              className="rounded-2xl border p-6"
-            >
-              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <h2 className="text-xl font-semibold">
-                    {flight.flight_no}
-                  </h2>
+        {filteredFlights.length === 0 ? (
+          <div className="rounded-2xl border p-10 text-center">
+            <h2 className="text-2xl font-semibold">
+              No Flights Found
+            </h2>
 
-                  <p>
-                    {flight.origin} → {flight.destination}
-                  </p>
-                </div>
-
-                <div>
-                  <p>
-                    Departure:
-                  </p>
-
-                  <p>
-                    {new Date(
-                      flight.departs_at
-                    ).toLocaleString()}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-2xl font-bold">
-                    ₹{flight.base_price}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+            <p className="mt-2 text-gray-400">
+              Try changing your search criteria.
+            </p>
+          </div>
+        ) : (
+          <div className="grid gap-4">
+            {filteredFlights.map((flight) => (
+              <FlightCard
+                key={flight.id}
+                flight={flight}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </main>
   );

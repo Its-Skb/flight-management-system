@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import SeatMap from "@/components/booking/seat-map";
 
 import {
   getFlightById,
@@ -89,26 +90,8 @@ export default async function BookingPage({
             Available Seats
           </h2>
 
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-6">
-            {seats.map((seat) => (
-              <button
-                key={seat.id}
-                disabled={!seat.is_available}
-                className={`rounded-xl border p-4 text-center transition ${
-                  seat.is_available
-                    ? "hover:border-white"
-                    : "cursor-not-allowed opacity-50"
-                }`}
-              >
-                <p className="font-semibold">
-                  {seat.seat_number}
-                </p>
-
-                <p className="text-sm capitalize">
-                  {seat.class}
-                </p>
-              </button>
-            ))}
+          <div className="mt-6">
+            <SeatMap seats={seats} />
           </div>
         </div>
       </div>

@@ -49,7 +49,7 @@ export default async function FlightPage({
               <p>
                 {new Date(
                   flight.departs_at
-                ).toLocaleString()}
+                ).toLocaleDateString()}
               </p>
             </div>
 
@@ -61,7 +61,7 @@ export default async function FlightPage({
               <p>
                 {new Date(
                   flight.arrives_at
-                ).toLocaleString()}
+                ).toLocaleDateString()}
               </p>
             </div>
           </div>

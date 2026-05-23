@@ -51,7 +51,7 @@ export default async function BookingPage({
               <p className="text-lg">
                 {new Date(
                   flight.departs_at
-                ).toLocaleString()}
+                ).toLocaleDateString()}
               </p>
             </div>
 
@@ -63,7 +63,7 @@ export default async function BookingPage({
               <p className="text-lg">
                 {new Date(
                   flight.arrives_at
-                ).toLocaleString()}
+                ).toLocaleDateString()}
               </p>
             </div>
 

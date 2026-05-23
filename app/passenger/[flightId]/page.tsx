@@ -1,3 +1,5 @@
+import { submitBooking } from "./actions";
+
 interface PassengerPageProps {
   params: Promise<{
     flightId: string;
@@ -38,22 +40,49 @@ export default async function PassengerPage({
           </p>
         </div>
 
-        <form className="mt-8 space-y-4">
+        <form
+          action={submitBooking}
+          className="mt-8 space-y-4"
+        >
           <input
+            type="hidden"
+            name="flightId"
+            value={flightId}
+          />
+
+          <input
+            type="hidden"
+            name="seatNumber"
+            value={query.seat || ""}
+          />
+
+          <input
+            type="hidden"
+            name="totalPrice"
+            value={query.total || "0"}
+          />
+
+          <input
+            name="passengerName"
             type="text"
             placeholder="Full Name"
+            required
             className="w-full rounded-xl border bg-transparent p-4"
           />
 
           <input
+            name="passengerEmail"
             type="email"
             placeholder="Email"
+            required
             className="w-full rounded-xl border bg-transparent p-4"
           />
 
           <input
+            name="passengerPhone"
             type="tel"
             placeholder="Phone Number"
+            required
             className="w-full rounded-xl border bg-transparent p-4"
           />
 

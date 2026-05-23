@@ -47,7 +47,7 @@ export default function FlightCard({
           <p>
             {new Date(
               flight.departs_at
-            ).toLocaleString()}
+            ).toLocaleDateString()}
           </p>
         </div>
 

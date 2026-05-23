@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
+import Link from "next/link";
 
 interface FlightPageProps {
   params: Promise<{
@@ -69,6 +70,13 @@ export default async function FlightPage({
             <p className="text-4xl font-bold">
               ₹{flight.base_price}
             </p>
+
+            <Link
+              href={`/booking/${flight.id}`}
+              className="mt-6 inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-black transition hover:opacity-90"
+            >
+              Continue Booking
+            </Link>
           </div>
         </div>
       </div>

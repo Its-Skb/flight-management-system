@@ -1,36 +1,154 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flight Management System
 
-## Getting Started
+A modern full-stack flight booking and management application built using Next.js 16, Supabase, Tailwind CSS, and TypeScript.
 
-First, run the development server:
+---
+
+## Features
+
+### Authentication
+- User Signup
+- User Login
+- Supabase Authentication Integration
+
+### Flight Search
+- Search flights by origin and destination
+- Dynamic search results page
+- Responsive search interface
+
+### Flight Details
+- Dynamic flight detail pages
+- Flight timings
+- Aircraft information
+- Pricing information
+
+### Interactive Seat Selection
+- Visual seat map
+- Economy, Business, and First Class sections
+- Dynamic fare updates
+- Seat availability handling
+- Responsive mobile-friendly seat layout
+
+### Booking Flow
+- Passenger details form
+- Booking summary
+- Dynamic total fare calculation
+
+### UI/UX
+- Responsive Design
+- Mobile Optimized
+- Dark Theme UI
+- Component-based architecture
+
+---
+
+## Tech Stack
+
+### Frontend
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+
+### Backend & Database
+- Supabase
+- PostgreSQL
+- Supabase Auth
+
+### State Management
+- Zustand
+
+---
+
+## Project Structure
+
+```bash
+app/
+components/
+services/
+lib/
+supabase/
+```
+
+---
+
+## Environment Variables
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <your-github-repository-url>
+```
+
+Move into project directory:
+
+```bash
+cd flight-management-system
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Database
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The project uses Supabase PostgreSQL with:
+- Flights table
+- Seats table
+- Bookings table
+- Authentication
+- RLS Policies
+- SQL migrations
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Implemented Functionalities
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Completed
+- Authentication System
+- Flight Search
+- Dynamic Flight Pages
+- Seat Selection UI
+- Dynamic Pricing
+- Passenger Details Page
+- Responsive Layout
+- Supabase Integration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### In Progress
+- Booking confirmation backend flow refinement for Next.js 16 server action compatibility
+- Realtime seat synchronization
+- Reschedule & cancellation flow
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project is deployed using Vercel.
+
+---
+
+## Author
+
+Saurabh Kumar

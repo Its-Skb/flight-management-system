@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 interface Seat {
@@ -13,11 +14,13 @@ interface Seat {
 interface SeatSelectorProps {
   seats: Seat[];
   basePrice: number;
+  flightId: string;
 }
 
 export default function SeatSelector({
   seats,
   basePrice,
+  flightId,
 }: SeatSelectorProps) {
   const [selectedSeat, setSelectedSeat] =
     useState<Seat | null>(null);
@@ -135,16 +138,21 @@ export default function SeatSelector({
           </p>
         </div>
 
-        <button
-          disabled={!selectedSeat}
-          className={`mt-6 rounded-xl px-6 py-3 font-semibold transition ${
-            selectedSeat
-              ? "bg-white text-black hover:opacity-90"
-              : "cursor-not-allowed border opacity-40"
-          }`}
-        >
-          Continue Passenger Details
-        </button>
+        {selectedSeat ? (
+          <Link
+            href={`/passenger/${flightId}?seat=${selectedSeat.seat_number}&total=${totalPrice}`}
+            className="mt-6 inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-black transition hover:opacity-90"
+          >
+            Continue Passenger Details
+          </Link>
+        ) : (
+          <button
+            disabled
+            className="mt-6 cursor-not-allowed rounded-xl border px-6 py-3 font-semibold opacity-40"
+          >
+            Continue Passenger Details
+          </button>
+        )}
       </div>
     </div>
   );

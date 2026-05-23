@@ -94,6 +94,7 @@ export default async function BookingPage({
             <SeatSelector
               seats={seats}
               basePrice={flight.base_price}
+              flightId={flight.id}
             />
           </div>
         </div>
